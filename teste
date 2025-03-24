@@ -1,0 +1,17 @@
+[33mcommit 922b06c51e6e9ffb3ce6519ce3102b8da3d478bc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: AndreVenturelli <andreventurelli10@gmail.com>
+Date:   Sun Mar 23 20:54:28 2025 -0300
+
+    Configure the ci workflow
+
+[33mcommit ec58caf18df943f47aa453a0c24ad118a7eff3d5[m
+Author: AndreVenturelli <andreventurelli10@gmail.com>
+Date:   Sun Mar 23 18:15:31 2025 -0300
+
+    Create Cypress project
+
+[33mcommit d5635743003dafe3d2b6c070f961fc76f7cab193[m
+Author: Walmyr <wlsf82@gmail.com>
+Date:   Tue Jan 2 17:26:14 2024 +0100
+
+    Initial commit
