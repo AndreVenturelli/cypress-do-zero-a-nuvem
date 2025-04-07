@@ -9,22 +9,35 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   
   it('preenche os campos obrigatorios e envia os formulários', () =>{
+    cy.clock()
+
+    const longText = Cypress._.repeat('adadasdasdasjndasjdnasjdnasdjnasdnjasdjasndjasn', 10)
+
     cy.get('#firstName').type('André')
     cy.get('#lastName').type('Venturelli')
     cy.get('#email').type('andreemail@gmail.com')
-    cy.get('#open-text-area').type('Estou apenas testando essa aplicação')
+    cy.get('#open-text-area').type(longText, {delay: 0 })
     /*cy.get('#open-text-area').type('Estou apenas testando essa aplicação ',{delay: 0})*/
-  cy.contains('button','Enviar').click()
+    cy.contains('button','Enviar').click()
     cy.get('.success').should('be.visible')
+
+    cy.tick(3000)
+
+    cy.get('.success').should('not.be.visible')
   })
 
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação invalida', () =>{
+    cy.clock()
     cy.get('#firstName').type('André')
     cy.get('#lastName').type('Venturelli')
     cy.get('#email').type('andreemail@gmail;com')
     cy.get('#open-text-area').type('Estou apenas testando')
-  cy.contains('button','Enviar').click()
-    cy.get('.error').should('be.visible')  
+    cy.contains('button','Enviar').click()
+    cy.get('.error').should('be.visible')
+
+    cy.tick(3000)
+    
+    cy.get('.error').should('not.be.visible')
   })
 
   it('verifica se o campo telefone só aceita numeros', ()=>{
@@ -67,13 +80,25 @@ cy.contains('button','Enviar').click()
   } )
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () =>{
-cy.contains('button','Enviar').click()
+    cy.clock()
+
+    cy.contains('button','Enviar').click()
     cy.get('.error').should('be.visible')
+
+    cy.tick(3000)
+
+    cy.get('.error').should('not.be.visible')
+
   })
   it('envia forms de sucesso com comando customizado', () =>{
+    cy.clock()
     cy.fillMandatoryFieldsAndSubmit()
 
     cy.get('.success').should('be.visible')
+
+    cy.tick(3000)
+
+    cy.get('.error').should('not.be.visible')
   })
 
   it('seleciona um produto por seu texto', () =>{
